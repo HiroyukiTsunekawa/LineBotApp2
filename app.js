@@ -35,7 +35,8 @@ app.post('/api', function(req, res) {
       replyToken: req.body.events[0].replyToken,
       messages: [{
         type: "text",
-        text: req.body.events[0].message.text
+        //text: req.body.events[0].message.text
+        text: 'ここに返却するメッセージ書くといいんだ'
       }]
     },
     auth: {
