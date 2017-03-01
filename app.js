@@ -16,6 +16,14 @@ var cfenv = require('cfenv');
 var app = express();
 
 // ----------ここから----------
+var bodyParser = require('body-parser');
+
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+app.use(bodyParser.json());
+
+// --------ここまで追加--------
 // ----------ここから2----------
 var request = require('request');
 
@@ -42,13 +50,6 @@ app.post('/api', function(req, res) {
 });
 // --------ここまで追加2--------
 
-var bodyParser = require('body-parser');
-
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
-app.use(bodyParser.json());
-// --------ここまで追加--------
 
 // serve the files out of ./public as our main files
 app.use(express.static(__dirname + '/public'));
